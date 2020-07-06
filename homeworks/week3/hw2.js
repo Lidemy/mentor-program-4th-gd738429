@@ -1,32 +1,32 @@
-var readline = require('readline');
+const readline = require('readline');
 
-var lines = []
-var rl = readline.createInterface({
-  input: process.stdin
+const lines = [];
+const rl = readline.createInterface({
+  input: process.stdin,
 });
 
-rl.on('line', function (line) {
-  lines.push(line)
-});
+function isFlowerNum(n) {
+  const tempStr = `${n}`;
+  let result = 0;
+  for (let i = 0; i < tempStr.length; i += 1) {
+    result += Number(tempStr[i]) ** Number(tempStr.length);
+  }
+  if (result === n) console.log(result);
+}
 
-rl.on('close', function() {
-  solve(lines)
-})
-//153 = 1
-function solve(lines) {
-  let tmp = lines[0].split(' ')
-  let a = Number(tmp[0])
-  let b = Number(tmp[1])
-  for(let i = a ; i <= b; i++){
-  	isFlowerNum(i)
+function solve(line) {
+  const tmp = line[0].split(' ');
+  const a = Number(tmp[0]);
+  const b = Number(tmp[1]);
+  for (let i = a; i <= b; i += 1) {
+    isFlowerNum(i);
   }
 }
 
-function isFlowerNum(n){
-	var tempStr = '' + n
-	var result = 0
-	for(let i = 0; i < tempStr.length; i++){
-		result += Math.pow(Number(tempStr[i]),tempStr.length)
-	}
-	if(result == n) console.log(result)
-}
+rl.on('line', (line) => {
+  lines.push(line);
+});
+
+rl.on('close', () => {
+  solve(lines);
+});
