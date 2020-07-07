@@ -18,10 +18,10 @@ function compare(a, b, judge) {
         ans = 'B';
         break;
       } else {
-        break;
+        ans = '';
       }
     }
-  } else {
+  } else { // 兩數位數不同
     ans = a.length > b.length ? 'A' : 'B';
   }
   // 判斷比較方式決定輸出
@@ -39,7 +39,7 @@ function solve(line) {
   // 迴圈跑 row 筆資料
   for (let i = 1; i <= row; i += 1) {
     // 設定每筆輸入
-    const tmpStr = lines[i].split(' ');
+    const tmpStr = line[i].split(' ');
     const inputA = tmpStr[0];
     const inputB = tmpStr[1];
     const judgeType = tmpStr[2];
