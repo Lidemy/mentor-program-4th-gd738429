@@ -16,8 +16,10 @@ switch (input1) {
         } catch (e) {
           console.log(e);
         }
-        for (let i = 0; i < json.length; i += 1) {
-          console.log(`${json[i].id} ${json[i].name}`);
+        if (response.statusCode >= 200 && response.statusCode < 300) {
+          for (let i = 0; i < json.length; i += 1) {
+            console.log(`${json[i].id} ${json[i].name}`);
+          }
         }
       },
     );
@@ -27,9 +29,7 @@ switch (input1) {
     request(
       `https://lidemy-book-store.herokuapp.com/books/${input2}`,
       (err, response, body) => {
-        if (response.statusCode === 404) {
-          console.log('輸入格式有誤,請重新輸入');
-        } else {
+        if (response.statusCode >= 200 && response.statusCode < 300) {
           let json;
           try {
             json = JSON.parse(body);
@@ -37,6 +37,8 @@ switch (input1) {
             console.log(e);
           }
           console.log(json.name);
+        } else {
+          console.log('輸入格式有誤,請重新輸入');
         }
       },
     );
@@ -46,10 +48,10 @@ switch (input1) {
     request.delete(
       `https://lidemy-book-store.herokuapp.com/books/${input2}`,
       (err, response) => {
-        if (response.statusCode === 404) {
-          console.log('刪除格式有誤,請重新輸入');
-        } else {
+        if (response.statusCode >= 200 && response.statusCode < 300) {
           console.log(`id:${input2} 刪除成功！！！`);
+        } else {
+          console.log('刪除格式有誤,請重新輸入');
         }
       },
     );
@@ -65,9 +67,7 @@ switch (input1) {
         },
       },
       (err, response, body) => {
-        if (response.statusCode === 404) {
-          console.log('新增格式有誤,請重新輸入');
-        } else {
+        if (response.statusCode >= 200 && response.statusCode < 300) {
           let json;
           try {
             json = JSON.parse(body);
@@ -75,6 +75,8 @@ switch (input1) {
             console.log(e);
           }
           console.log(`新增成功：id:${json.id}, name:${json.name}`);
+        } else {
+          console.log('新增格式有誤,請重新輸入');
         }
       },
     );
@@ -90,9 +92,7 @@ switch (input1) {
         },
       },
       (err, response, body) => {
-        if (response.statusCode === 404) {
-          console.log('更新格式有誤,請重新輸入');
-        } else {
+        if (response.statusCode >= 200 && response.statusCode < 300) {
           let json;
           try {
             json = JSON.parse(body);
@@ -100,6 +100,8 @@ switch (input1) {
             console.log(e);
           }
           console.log(`更新成功：id:${json.id}, name:${json.name}`);
+        } else {
+          console.log('更新格式有誤,請重新輸入');
         }
       },
     );
