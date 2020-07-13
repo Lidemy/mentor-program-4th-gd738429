@@ -10,7 +10,7 @@ const options = {
 };
 
 function callback(error, response, body) {
-  if (!error && response.statusCode === 200) {
+  if (response.statusCode === 200 && response.statusCode < 300) {
     let json;
     let games;
     try {
@@ -24,6 +24,8 @@ function callback(error, response, body) {
       // eslint-disable-next-line no-underscore-dangle
       console.log(`${games[i].game._id} ${games[i].game.name}`);
     }
+  } else {
+    console.log('格式有誤,請重新輸入');
   }
 }
 

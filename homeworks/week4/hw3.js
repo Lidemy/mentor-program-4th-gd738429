@@ -23,6 +23,8 @@ request(
 國碼：${json[i].callingCodes[0]}`,
         );
       }
+    } else {
+      console.log('格式有誤,請重新輸入');
     }
   },
 );
