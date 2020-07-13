@@ -11,8 +11,15 @@ const options = {
 
 function callback(error, response, body) {
   if (!error && response.statusCode === 200) {
-    const json = JSON.parse(body);
-    const games = json.top;
+    let json;
+    let games;
+    try {
+      json = JSON.parse(body);
+      games = json.top;
+    } catch (e) {
+      console.log(e);
+    }
+
     for (let i = 0; i < games.length; i += 1) {
       // eslint-disable-next-line no-underscore-dangle
       console.log(`${games[i].game._id} ${games[i].game.name}`);

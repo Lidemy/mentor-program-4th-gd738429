@@ -25,7 +25,13 @@ switch (input1) {
     req = https.request(options, (res) => {
       res.on('data', (d) => {
         if (res.statusCode === 200) {
-          const json = JSON.parse(`${d}`);
+          let json;
+          try {
+            json = JSON.parse(`${d}`);
+          } catch (e) {
+            console.log(e);
+          }
+
           for (let i = 0; i < json.length; i += 1) {
             console.log(`${json[i].id} ${json[i].name}`);
           }
@@ -51,7 +57,12 @@ switch (input1) {
     req = https.request(options, (res) => {
       res.on('data', (d) => {
         if (res.statusCode === 200) {
-          const json = JSON.parse(`${d}`);
+          let json;
+          try {
+            json = JSON.parse(`${d}`);
+          } catch (e) {
+            console.log(e);
+          }
           console.log(json.name);
         }
       });
@@ -108,7 +119,12 @@ switch (input1) {
     req = https.request(options, (res) => {
       res.on('data', (d) => {
         if (res.statusCode === 201) {
-          const json = JSON.parse(`${d}`);
+          let json;
+          try {
+            json = JSON.parse(`${d}`);
+          } catch (e) {
+            console.log(e);
+          }
           console.log(`新增成功：id: ${json.id}, name: ${json.name}`);
         }
       });
@@ -141,7 +157,12 @@ switch (input1) {
     req = https.request(options, (res) => {
       res.on('data', (d) => {
         if (res.statusCode === 200) {
-          const json = JSON.parse(`${d}`);
+          let json;
+          try {
+            json = JSON.parse(`${d}`);
+          } catch (e) {
+            console.log(e);
+          }
           console.log(`更新成功：id:${json.id}, name:${json.name}`);
         }
       });

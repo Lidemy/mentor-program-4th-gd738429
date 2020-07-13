@@ -10,7 +10,12 @@ switch (input1) {
     request(
       'https://lidemy-book-store.herokuapp.com/books?_limit=20',
       (err, response, body) => {
-        const json = JSON.parse(body);
+        let json;
+        try {
+          json = JSON.parse(body);
+        } catch (e) {
+          console.log(e);
+        }
         for (let i = 0; i < json.length; i += 1) {
           console.log(`${json[i].id} ${json[i].name}`);
         }
@@ -25,7 +30,12 @@ switch (input1) {
         if (response.statusCode === 404) {
           console.log('輸入格式有誤,請重新輸入');
         } else {
-          const json = JSON.parse(body);
+          let json;
+          try {
+            json = JSON.parse(body);
+          } catch (e) {
+            console.log(e);
+          }
           console.log(json.name);
         }
       },
@@ -58,7 +68,12 @@ switch (input1) {
         if (response.statusCode === 404) {
           console.log('新增格式有誤,請重新輸入');
         } else {
-          const json = JSON.parse(body);
+          let json;
+          try {
+            json = JSON.parse(body);
+          } catch (e) {
+            console.log(e);
+          }
           console.log(`新增成功：id:${json.id}, name:${json.name}`);
         }
       },
@@ -78,7 +93,12 @@ switch (input1) {
         if (response.statusCode === 404) {
           console.log('更新格式有誤,請重新輸入');
         } else {
-          const json = JSON.parse(body);
+          let json;
+          try {
+            json = JSON.parse(body);
+          } catch (e) {
+            console.log(e);
+          }
           console.log(`更新成功：id:${json.id}, name:${json.name}`);
         }
       },

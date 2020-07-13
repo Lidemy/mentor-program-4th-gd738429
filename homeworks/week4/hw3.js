@@ -6,7 +6,12 @@ const input1 = process.argv[2];
 request(
   `https://restcountries.eu/rest/v2/name/${input1}`,
   (err, response, body) => {
-    const json = JSON.parse(body);
+    let json;
+    try {
+      json = JSON.parse(body);
+    } catch (e) {
+      console.log(e);
+    }
     for (let i = 0; i < json.length; i += 1) {
       console.log(
         `============
