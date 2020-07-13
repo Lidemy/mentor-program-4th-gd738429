@@ -24,7 +24,7 @@ switch (input1) {
 
     req = https.request(options, (res) => {
       res.on('data', (d) => {
-        if (res.statusCode === 200) {
+        if (res.statusCode >= 200 && res.statusCode < 300) {
           let json;
           try {
             json = JSON.parse(`${d}`);
@@ -35,6 +35,8 @@ switch (input1) {
           for (let i = 0; i < json.length; i += 1) {
             console.log(`${json[i].id} ${json[i].name}`);
           }
+        } else {
+          console.log('格式有誤,請重新輸入');
         }
       });
     });
@@ -56,7 +58,7 @@ switch (input1) {
 
     req = https.request(options, (res) => {
       res.on('data', (d) => {
-        if (res.statusCode === 200) {
+        if (res.statusCode >= 200 && res.statusCode < 300) {
           let json;
           try {
             json = JSON.parse(`${d}`);
@@ -64,6 +66,8 @@ switch (input1) {
             console.log(e);
           }
           console.log(json.name);
+        } else {
+          console.log('格式有誤,請重新輸入');
         }
       });
     });
@@ -86,8 +90,10 @@ switch (input1) {
 
     req = https.request(options, (res) => {
       res.on('data', () => {
-        if (res.statusCode === 200) {
+        if (res.statusCode >= 200 && res.statusCode < 300) {
           console.log(`id:${input2} 刪除成功！！！`);
+        } else {
+          console.log('格式有誤,請重新輸入');
         }
       });
     });
@@ -118,7 +124,7 @@ switch (input1) {
 
     req = https.request(options, (res) => {
       res.on('data', (d) => {
-        if (res.statusCode === 201) {
+        if (res.statusCode >= 200 && res.statusCode < 300) {
           let json;
           try {
             json = JSON.parse(`${d}`);
@@ -126,6 +132,8 @@ switch (input1) {
             console.log(e);
           }
           console.log(`新增成功：id: ${json.id}, name: ${json.name}`);
+        } else {
+          console.log('格式有誤,請重新輸入');
         }
       });
     });
@@ -156,7 +164,7 @@ switch (input1) {
 
     req = https.request(options, (res) => {
       res.on('data', (d) => {
-        if (res.statusCode === 200) {
+        if (res.statusCode >= 200 && res.statusCode < 300) {
           let json;
           try {
             json = JSON.parse(`${d}`);
@@ -164,6 +172,8 @@ switch (input1) {
             console.log(e);
           }
           console.log(`更新成功：id:${json.id}, name:${json.name}`);
+        } else {
+          console.log('格式有誤,請重新輸入');
         }
       });
     });
