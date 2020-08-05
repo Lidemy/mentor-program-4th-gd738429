@@ -1,0 +1,148 @@
+.main {
+  padding-left: 42px;
+  border: solid 1px rgba(0, 0, 0, 0.2);
+  border-top: solid 8px #fad312;
+  width: 500px;
+  margin: 0 auto;
+  
+}
+
+h1, h2, h3 {
+  margin: 0px;
+}
+
+#form__title {
+  margin-top: 54px;
+  font-family: MicrosoftJhengHei;
+  font-size: 36px;
+  font-weight: bold;
+  letter-spacing: -1.8px;
+  text-align: left;
+  color: #000000;
+}
+
+#must__filled {
+  font-family: MicrosoftJhengHei;
+  font-size: 16px;
+  color: #e74149;
+}
+
+#must__filled span {
+  text-align: left;
+}
+
+.desc {
+  font-family: MicrosoftJhengHei;
+  font-size: 14px;
+  text-align: left;
+  color: #000000;
+  margin: 35px 0px 11px 0px;
+  font-weight: normal;
+}
+
+.desc + .desc{
+  margin-top: 0px;
+  margin-bottom: 22px;
+}
+
+.main__input {
+  margin-top: 50px;
+}
+
+.main__input > h2 {
+  font-family: MicrosoftJhengHei;
+  font-size: 20px;
+  margin-bottom: 20px;
+  font-weight: 300;
+}
+
+input {
+  width: 287px;
+  height: 23px;
+  border: solid 1px #d0d0d0;
+  background-color: white;
+}
+
+input:focus {
+  background-color: #d0d0d0;
+}
+
+.main__input > h2::after{
+  content: " *";
+  color: #e74149;
+}
+
+.main__input input[type="radio"] {
+  width: auto;
+  height: auto;
+  border: none;
+  background-color: #bababa;
+  border-color: gray;
+  margin-right: 8px;
+}
+
+.main__input label {
+  font-weight: 300;
+  font-family: MicrosoftJhengHei;
+  font-size: 14px;
+}
+
+.main__input div {
+  padding: 15px 0px;
+}
+
+.main__else{
+  margin: 55px 0px;
+}
+
+.main__else > h2 {
+  font-family: MicrosoftJhengHei;
+  font-size: 20px;
+  font-weight: 300;
+  margin-bottom: 10px;
+}
+
+.main__else > h2::after{
+  content: "";
+}
+
+.main__else > div{
+  font-weight: 300;
+  font-family: MicrosoftJhengHei;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+
+.main__submit {
+  width: 92px;
+  height: 40px;
+  border-radius: 3px;
+  background-color: #fad312;
+  border: none;
+  font-weight: 300px;
+  transition: 0.5s;
+}
+
+.main__submit:hover{
+  transform: scale(1.2);
+}
+
+.main__notice {
+  font-family: MicrosoftJhengHei;
+  font-size: 14px;
+  font-weight: 300px;
+  margin: 21px 0px 35px 0px;
+}
+
+@media(max-width:375px){
+  .main{
+    width: auto;
+    padding-left: 10px;
+  }
+
+  input{
+    width: 200px;
+    row-gap: 2;
+  }
+}
